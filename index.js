@@ -282,17 +282,18 @@ var regionalFlavors = ["Pink Bubblegum",
 
 function getRandomFlavors(arr1, arr2, arr3, arr4){
     let randomFlavors = [];
+    let count = 0;
 
     for(let i = 0; i < 31; i++) {
-        let determine = Math.round(Math.random() * 4);
-        let randomizer = randomFlavor(arr1, arr2, arr3, arr4, determine);
+        let whichArr = Math.round(Math.random() * 3);
+        let randomArr = randomFlavor(arr1, arr2, arr3, arr4, whichArr);
 
-        randomFlavors.push(randomizer[i]);
+        randomFlavors.push(randomArr[count]);
+        count++;
+        //return whichArr;
     }
     return randomFlavors;
 }
-
-console.log('Strech 2: ', getRandomFlavors(newFlavors, seasonalFlavors, regionalFlavors, originalFlavors));
 
 function randomFlavor(arr1, arr2, arr3, arr4, num) {
     if(num === 0) {
@@ -305,3 +306,5 @@ function randomFlavor(arr1, arr2, arr3, arr4, num) {
         return arr4;
     }
 }
+//console.log(randomFlavor(newFlavors, seasonalFlavors, regionalFlavors, originalFlavors, 1));
+console.log('Strech 2: ', getRandomFlavors(newFlavors, seasonalFlavors, regionalFlavors, originalFlavors));
