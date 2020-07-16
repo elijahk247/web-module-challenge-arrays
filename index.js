@@ -163,11 +163,18 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 
 hint - you can use the .includes method to help you solve this */
 
-function filterByWord(/*code here*/){
+function filterByWord(arr, name) {
+    const names = []
 
-    /*code here*/
-
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i].includes(name)) {
+            names.push(arr[i]);
+        }
+    }
+    return names;
 }
+
+console.log('Task 7: ', filterByWord(originalFlavors, 'Chocolate'));
 
 
 
@@ -221,7 +228,7 @@ var newFlavors = ["Date night",
     "Chocolate Fudge",
     "Daiquiri Ice",
     "Rainbow Sherbet",
-    "Rainbow Swirl"] 
+    "Rainbow Swirl"];
 var seasonalFlavors = ["America's Birthday Cake",
     "Baseball Nut®",
     "Blueberry Cheesecake",
@@ -245,7 +252,7 @@ var seasonalFlavors = ["America's Birthday Cake",
     "made with Snickers®",
     "made with M&M's®",
     "Heath®",
-    "Mango Tango",]
+    "Mango Tango",];
 var regionalFlavors = ["Pink Bubblegum",
     "Caramel Macchiato",
     "York Peppermint Pattie",
@@ -269,10 +276,32 @@ var regionalFlavors = ["Pink Bubblegum",
     "Cotton Candy Crackle",
     "Quarterback Crunch",
     "Chocolate Chocolate Chip Cheesecake",
-    "Caramel 'n' Cookies"]
+    "Caramel 'n' Cookies"];
 
-function getRandomFlavors(/*code here*/){
 
-    /*code here*/
 
+function getRandomFlavors(arr1, arr2, arr3, arr4){
+    let randomFlavors = [];
+
+    for(let i = 0; i < 31; i++) {
+        let determine = Math.round(Math.random() * 4);
+        let randomizer = randomFlavor(arr1, arr2, arr3, arr4, determine);
+
+        randomFlavors.push(randomizer[i]);
+    }
+    return randomFlavors;
+}
+
+console.log('Strech 2: ', getRandomFlavors(newFlavors, seasonalFlavors, regionalFlavors, originalFlavors));
+
+function randomFlavor(arr1, arr2, arr3, arr4, num) {
+    if(num === 0) {
+        return arr1;
+    } else if(num === 1) {
+        return arr2;
+    } else if(num === 2) {
+        return arr3;
+    } else if(num === 3) {
+        return arr4;
+    }
 }
